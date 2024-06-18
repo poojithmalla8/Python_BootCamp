@@ -1,0 +1,38 @@
+from art import logo
+import random
+
+print("Welcome to the Number Guessing Game")
+print("I am thinking of a number between 1-100")
+difficulty=input("Choose a difficulty. Type 'easy' or 'hard': ")
+
+if difficulty == 'easy':
+    attempts=10
+    print(f"You have {attempts} attempts remaining to guess the number")
+elif difficulty == 'hard':
+    attempts=5
+    print(f"You have {attempts} attempts remaining to guess the number")
+else:
+    print("Invalid input. Please choose 'easy' or 'hard'")
+    
+compnum=random.randint(1,100)
+
+
+while attempts!=0 :
+    guesnum=int(input("Make a guess: "))
+    if guesnum > compnum:
+        print("Too high")
+        print("Guess Again")
+        attempts-=1
+        print(f"You have {attempts} attempts remaining to guess the number")
+    elif guesnum < compnum:
+        print("Too low")
+        print("Guess Again")
+        attempts-=1
+        print(f"You have {attempts} attempts remaining to guess the number")
+    elif guesnum == compnum:
+        print(f"Congratulations! You guessed the number correctly. The answer was {compnum}")
+        exit()
+        
+if compnum != guesnum and attempts:
+    print(f"You've run out of guess. You Lose. The answer was {compnum}")
+        
